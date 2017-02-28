@@ -10,11 +10,12 @@ IHMdeportee::IHMdeportee(QWidget *parent) :
     ui->setupUi(this);
 
     lancerTimer();
+    updateValeurs();
     calendrier();
     layout();
     sizeWidget();
     styleWidget();
-
+    //writeResume();
 
     /*int largeur = QApplication::desktop()->width();
     int hauteur = QApplication::desktop()->height();
@@ -27,14 +28,20 @@ IHMdeportee::IHMdeportee(QWidget *parent) :
 
     connect(ui->start, SIGNAL(clicked(bool)), this, SLOT(lancerChronometre())); // quand on appuie sur commencer le chrono demarre
     connect(chronoTimer, SIGNAL (timeout()), this, SLOT (refreshChronometre())) ; // mise à jour de la valeur du chrono
+    connect(ui->start, SIGNAL(clicked(bool)), this, SLOT (disabledWidgetsCommencer())) ;
 
     connect(ui->stop, SIGNAL(clicked(bool)), this, SLOT (stopChronometre())) ; // quand on appuie sur stop, le chrono s'arrete
-    connect(ui->stop, SIGNAL(clicked(bool)), this, SLOT (enabledWidget())) ;
+    connect(ui->stop, SIGNAL(clicked(bool)), this, SLOT (disabledWidgetsArret())) ;
 
     connect(ui->pause, SIGNAL(clicked(bool)), this, SLOT (pauseChronometre())) ; // pause
     connect(ui->reprendre, SIGNAL(clicked(bool)), this, SLOT (restartChronometre())) ; //reprendre
 
-    connect(ui->suivantReglages1, SIGNAL(clicked(bool)), ui->tabWidget, SLOT(index()));
+    connect(ui->suivantPatient, SIGNAL(clicked(bool)), this, SLOT(suivantFenetrePatient()));
+    connect(ui->suivantReglages1, SIGNAL(clicked(bool)), this, SLOT(suivantFenetreReglages1()));
+    connect(ui->precedentReglages1, SIGNAL(clicked(bool)), this, SLOT(precedentFenetreReglages1()));
+    connect(ui->suivantReglages2, SIGNAL(clicked(bool)), this, SLOT(suivantFenetreReglages2()));
+    connect(ui->precedentReglages2, SIGNAL(clicked(bool)), this, SLOT(precedentFenetreReglages2()));
+    connect(ui->precedentResume, SIGNAL(clicked(bool)), this, SLOT(precedentFenetreResume()));
 
 
     // Courbe
@@ -174,6 +181,12 @@ void IHMdeportee::lancerTimer()
 void IHMdeportee::calendrier()
 {
     QDateTime date = QDateTime::currentDateTime();
+
+
+    QDate dateOfDay = QDate::currentDate();
+    ui->dateManip->setDate(dateOfDay);
+
+
     QString dateString = date.toString("d/MM/yyyy");
     ui->date->setText(dateString);
 }
@@ -181,7 +194,7 @@ void IHMdeportee::calendrier()
 
 //disable les bouton pause, reprendre et commencer quand on appuie sur arret d'urgence
 
-void IHMdeportee::enabledWidget()
+void IHMdeportee::disabledWidgetsArret()
 {
     QPushButton *bouton1 = new QPushButton;
     bouton1 = ui->reprendre;
@@ -194,6 +207,33 @@ void IHMdeportee::enabledWidget()
     QPushButton *bouton3 = new QPushButton;
     bouton3 = ui->start;
     bouton3->setEnabled(false);
+}
+
+
+//Rend inaccessible les onglets précédents après avoir appuyé sur Commencer
+
+void IHMdeportee::disabledWidgetsCommencer()
+{
+    QPushButton *bouton1 = new QPushButton;
+    bouton1 = ui->precedentResume;
+    bouton1->setEnabled(false);
+
+
+    //ui->patient->setEnabled(false);
+    //ui->reglages1->setEnabled(false);
+    //ui->reglages2->setEnabled(false);
+
+    ui->tabWidget->setTabEnabled(0,false);
+    ui->tabWidget->setTabEnabled(1,false);
+    ui->tabWidget->setTabEnabled(2,false);
+
+    /*QPushButton *bouton2 = new QPushButton;
+    bouton2 = ui->pause;
+    bouton2->setEnabled(false);
+
+    QPushButton *bouton3 = new QPushButton;
+    bouton3 = ui->start;
+    bouton3->setEnabled(false);*/
 }
 
 
@@ -245,6 +285,7 @@ void IHMdeportee::layout()
 
     ui->groupBoxReglages1->setLayout(layoutReglages1);
 
+
     //Layout GroupBox Reglages2
 
     QGridLayout *layoutReglages2 = new QGridLayout;
@@ -280,12 +321,28 @@ void IHMdeportee::layout()
 
     //Layout de l'onglet resume
 
+    QGridLayout *layoutLabels = new QGridLayout;
+    layoutLabels->addWidget(ui->resumeNombreImpulsion,0,0);
+    layoutLabels->addWidget(ui->resumeLargeurImpulsion,1,0);
+    layoutLabels->addWidget(ui->resumeLargeurFenetre,2,0);
+    layoutLabels->addWidget(ui->resumePeriode,3,0);
+    layoutLabels->addWidget(ui->resumeAmplitude,4,0);
+
+    layoutLabels->addWidget(ui->resumeValeurNombreImpulsion,0,1);
+    layoutLabels->addWidget(ui->resumeValeurLargeurImpulsion,1,1);
+    layoutLabels->addWidget(ui->resumeValeurLargeurFenetre,2,1);
+    layoutLabels->addWidget(ui->resumeValeurPeriode,3,1);
+    layoutLabels->addWidget(ui->resumeValeurAmplitude,4,1);
+
     QGridLayout *layoutResume = new QGridLayout;
-    layoutResume->addWidget(ui->labelResume,0,0);
+    layoutResume->addLayout(layoutLabels,0,0);
     layoutResume->addWidget(ui->precedentResume,1,1);
     layoutResume->addWidget(ui->start,1,2);
 
     ui->resume->setLayout(layoutResume);
+
+
+    //Layout fenetre principale
 
     QVBoxLayout *layoutBoutonTemps = new QVBoxLayout;
     layoutBoutonTemps->addWidget(ui->date, 0);
@@ -296,14 +353,14 @@ void IHMdeportee::layout()
     layoutBoutonChrono->addWidget(ui->reprendre, 1, 0);
 
     QGridLayout *layoutBoutonsBas = new QGridLayout;
+    layoutBoutonsBas->addLayout(layoutBoutonChrono,0,0,1,1);
     layoutBoutonsBas->addWidget(ui->chronometre,0,1,1,1);
-    layoutBoutonsBas->addLayout(layoutBoutonChrono,0,2,1,1);
-    layoutBoutonsBas->addWidget(ui->stop,0,3,1,1);
 
     QGridLayout *layoutSousPrincipal = new QGridLayout;
     layoutSousPrincipal->addLayout(layoutBoutonTemps,0,0,1,1);
     layoutSousPrincipal->addLayout(layoutBoutonsBas,0,1,1,1);
-    layoutSousPrincipal->addWidget(ui->batterie,0,2,1,1);
+    layoutSousPrincipal->addWidget(ui->stop,0,2,1,1);
+    layoutSousPrincipal->addWidget(ui->batterie,0,3,1,1);
 
     QVBoxLayout *layoutPrincipal = new QVBoxLayout;
     layoutPrincipal->addWidget(ui->tabWidget);
@@ -345,14 +402,14 @@ void IHMdeportee::sizeWidget()
     ui->labelPeriode->setFixedSize(600,40);
     ui->labelAmplitudeMax->setFixedSize(600,40);
 
-    ui->nombreImpulsions->setFixedSize(700,100);
-    ui->largeurImpulsion->setFixedSize(700,80);
-    ui->largeurFenetre->setFixedSize(700,80);
-    ui->periodicite->setFixedSize(700,80);
-    ui->amplitudeMax->setFixedSize(700,80);
+    ui->nombreImpulsions->setFixedSize(750,100);
+    ui->largeurImpulsion->setFixedSize(750,80);
+    ui->largeurFenetre->setFixedSize(750,80);
+    ui->periodicite->setFixedSize(750,80);
+    ui->amplitudeMax->setFixedSize(750,80);
 
-    ui->suivantReglages1->setFixedSize(300,110);
-    ui->precedentReglages1->setFixedSize(300,110);
+    ui->suivantReglages1->setFixedSize(250,110);
+    ui->precedentReglages1->setFixedSize(250,110);
 
 
    //Onglet reglages 2
@@ -363,10 +420,23 @@ void IHMdeportee::sizeWidget()
     //Onglet resume
 
     ui->precedentResume->setFixedSize(300,110);
+    ui->start->setFixedSize(300,110);
+
+    ui->resumeNombreImpulsion->setFixedSize(600,110);
+    ui->resumeLargeurImpulsion->setFixedSize(600,110);
+    ui->resumeLargeurFenetre->setFixedSize(600,110);
+    ui->resumePeriode->setFixedSize(600,110);
+    ui->resumeAmplitude->setFixedSize(600,110);
+
+    ui->resumeValeurNombreImpulsion->setFixedSize(300,110);
+    ui->resumeValeurLargeurImpulsion->setFixedSize(300,110);
+    ui->resumeValeurLargeurFenetre->setFixedSize(300,110);
+    ui->resumeValeurPeriode->setFixedSize(300,110);
+    ui->resumeValeurAmplitude->setFixedSize(300,110);
 
     //Fenetre principale
 
-    ui->batterie->setFixedSize(400,180);
+    ui->batterie->setFixedSize(400,200);
 
     ui->pause->setFixedSize(300,90);
     ui->reprendre->setFixedSize(300,90);
@@ -388,8 +458,100 @@ void IHMdeportee::styleWidget()
 
     ui->batterie->setStyleSheet("QProgressBar::chunk{background-color : rgb(15,211,15);text-color:white}");
 
+    ui->stop->setStyleSheet("QPushButton{"
+                            "color : rgb(255,255,255);"
+                            "background-color : rgb(255,0,0);}");
+
+    //ui->labelResume->setStyleSheet("QLabel{background-color : green}");
+
+    //ui->stop->setIcon(QIcon("danger.png"));
+
+
+
 }
 
+
+void IHMdeportee::suivantFenetrePatient()
+{
+
+    ui->tabWidget->setCurrentWidget(ui->reglages1);
+
+}
+
+
+void IHMdeportee::suivantFenetreReglages1()
+{
+
+    ui->tabWidget->setCurrentWidget(ui->reglages2);
+
+}
+
+void IHMdeportee::precedentFenetreReglages1()
+{
+
+    ui->tabWidget->setCurrentWidget(ui->patient);
+
+}
+
+void IHMdeportee::suivantFenetreReglages2()
+{
+
+    ui->tabWidget->setCurrentWidget(ui->resume);
+
+}
+
+void IHMdeportee::precedentFenetreReglages2()
+{
+
+    ui->tabWidget->setCurrentWidget(ui->reglages1);
+
+}
+
+void IHMdeportee::precedentFenetreResume()
+{
+
+    ui->tabWidget->setCurrentWidget(ui->reglages2);
+
+}
+
+void IHMdeportee::updateValeurs()
+{
+
+    QTimer *timer = new QTimer;
+    connect(timer, SIGNAL(timeout()),this, SLOT(writeResume()));
+    timer->start(100);
+
+
+}
+
+
+void IHMdeportee::writeResume()
+{
+    //QString nom = ui->nom->text();
+
+    //ui->labelResume->setText("Nombre d'impulsions : \n\n\nLargeur des impulsions : \n\n\nLargeur de la fenêtre : \n\n\nPériode : \n\n\nAmplitude maximale : ");
+    ui->resumeNombreImpulsion->setText("Nombre d'impulsions : ");
+    ui->resumeLargeurImpulsion->setText("Largeur des impulsions : ");
+    ui->resumeLargeurFenetre->setText("Largeur de la fenêtre : ");
+    ui->resumePeriode->setText("Période : ");
+    ui->resumeAmplitude->setText("Amplitude maximale : ");
+
+    int valeurNombreImpulsions = ui->nombreImpulsions->value();
+    //QString nombreImpulsions = valeurNombreImpulsions.toString;
+    QString nombreImpulsions = QString::number(valeurNombreImpulsions);
+
+    QString largeurImpulsions = ui->valeurLargeurImpulsion->text();
+    QString largeurFenetre = ui->valeurLargeurFenetre->text();
+    QString periodicite = ui->valeurPeriode->text();
+    QString amplitudeMax = ui->valeurAmplitude->text();
+
+    ui->resumeValeurNombreImpulsion->setText(nombreImpulsions);
+    ui->resumeValeurLargeurImpulsion->setText(largeurImpulsions);
+    ui->resumeValeurLargeurFenetre->setText(largeurFenetre);
+    ui->resumeValeurPeriode->setText(periodicite);
+    ui->resumeValeurAmplitude->setText(amplitudeMax);
+
+}
 
 
 

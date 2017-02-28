@@ -41,6 +41,8 @@ public:
     void layout();
     void sizeWidget();
     void styleWidget();
+    void updateValeurs();
+
     //QwtCourbe(QWidget *parent = 0);
 
 
@@ -51,8 +53,16 @@ void stopChronometre();
 void restartChronometre();
 void refreshChronometre();
 void displayChronometre();
-void enabledWidget();
+void disabledWidgetsArret();
+void disabledWidgetsCommencer();
 void updateLabel();
+void suivantFenetrePatient();
+void suivantFenetreReglages1();
+void precedentFenetreReglages1();
+void suivantFenetreReglages2();
+void precedentFenetreReglages2();
+void precedentFenetreResume();
+void writeResume();
 
 //void index();
 

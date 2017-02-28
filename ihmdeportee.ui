@@ -22,6 +22,70 @@
     <height>16777215</height>
    </size>
   </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
   <property name="windowTitle">
    <string>IHMdeportee</string>
   </property>
@@ -38,7 +102,7 @@
       <x>0</x>
       <y>0</y>
       <width>571</width>
-      <height>251</height>
+      <height>411</height>
      </rect>
     </property>
     <property name="font">
@@ -48,7 +112,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="patient">
      <attribute name="title">
@@ -85,9 +149,9 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
@@ -105,9 +169,9 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
@@ -125,9 +189,9 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
@@ -145,9 +209,9 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
@@ -163,6 +227,14 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+        </font>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QLineEdit" name="nom">
        <property name="geometry">
@@ -172,6 +244,11 @@
          <width>171</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+        </font>
        </property>
       </widget>
       <widget class="QLineEdit" name="prenom">
@@ -183,6 +260,11 @@
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+        </font>
+       </property>
       </widget>
       <widget class="QLineEdit" name="numManip">
        <property name="geometry">
@@ -193,6 +275,11 @@
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+        </font>
+       </property>
       </widget>
       <widget class="QPushButton" name="suivantPatient">
        <property name="geometry">
@@ -202,6 +289,13 @@
          <width>100</width>
          <height>40</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>Suivant</string>
@@ -220,6 +314,8 @@
       <property name="font">
        <font>
         <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -241,6 +337,8 @@
       <property name="font">
        <font>
         <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -347,6 +445,14 @@
          <width>141</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+        </font>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
        </property>
       </widget>
       <widget class="QLabel" name="labelNombreImpulsion">
@@ -617,20 +723,25 @@
      <attribute name="title">
       <string>Résumé</string>
      </attribute>
-     <widget class="QLabel" name="labelResume">
+     <widget class="QLabel" name="resumeNombreImpulsion">
       <property name="geometry">
        <rect>
         <x>20</x>
         <y>20</y>
-        <width>541</width>
-        <height>261</height>
+        <width>121</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
      <widget class="QPushButton" name="start">
@@ -662,6 +773,195 @@
        <string>Précédent</string>
       </property>
      </widget>
+     <widget class="QLabel" name="resumeLargeurImpulsion">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumeLargeurFenetre">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>120</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumePeriode">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>170</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumeAmplitude">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumeValeurNombreImpulsion">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>20</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumeValeurLargeurImpulsion">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>20</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumeValeurLargeurFenetre">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>90</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumeValeurPeriode">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>150</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="resumeValeurAmplitude">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>260</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="simulation">
      <attribute name="title">
@@ -681,6 +981,12 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Reprendre</string>
     </property>
@@ -696,14 +1002,26 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>25</pointsize>
+      <pointsize>30</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string>Arrêt 
 d'urgence</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pause">
@@ -717,6 +1035,12 @@ d'urgence</string>
       <width>75</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Pause</string>
@@ -734,11 +1058,13 @@ d'urgence</string>
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>25</pointsize>
+      <pointsize>50</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="value">
-     <number>100</number>
+     <number>50</number>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -759,6 +1085,18 @@ d'urgence</string>
       <height>51</height>
      </rect>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>4</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Filled</enum>
+    </property>
    </widget>
   </widget>
  </widget>
@@ -772,12 +1110,12 @@ d'urgence</string>
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>377</x>
-     <y>149</y>
+     <x>379</x>
+     <y>176</y>
     </hint>
     <hint type="destinationlabel">
-     <x>459</x>
-     <y>141</y>
+     <x>461</x>
+     <y>167</y>
     </hint>
    </hints>
   </connection>
@@ -788,12 +1126,12 @@ d'urgence</string>
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>359</x>
-     <y>200</y>
+     <x>361</x>
+     <y>226</y>
     </hint>
     <hint type="destinationlabel">
-     <x>452</x>
-     <y>194</y>
+     <x>454</x>
+     <y>217</y>
     </hint>
    </hints>
   </connection>
@@ -804,12 +1142,12 @@ d'urgence</string>
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>370</x>
-     <y>245</y>
+     <x>372</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
-     <x>453</x>
-     <y>244</y>
+     <x>455</x>
+     <y>267</y>
     </hint>
    </hints>
   </connection>
@@ -820,12 +1158,12 @@ d'urgence</string>
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>294</y>
+     <x>374</x>
+     <y>326</y>
     </hint>
     <hint type="destinationlabel">
-     <x>456</x>
-     <y>295</y>
+     <x>458</x>
+     <y>317</y>
     </hint>
    </hints>
   </connection>
