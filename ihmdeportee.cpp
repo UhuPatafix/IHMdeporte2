@@ -263,22 +263,13 @@ void IHMdeportee::layout()
     //Layout GroupBoxReglages1
 
     QGridLayout *layoutReglages1 = new QGridLayout;
-    layoutReglages1->addWidget(ui->labelNombreImpulsion,0,0);
-    layoutReglages1->addWidget(ui->labelLargeurImpulsion,1,0);
-    layoutReglages1->addWidget(ui->labelLargeurFenetre,2,0);
-    layoutReglages1->addWidget(ui->labelPeriode,3,0);
-    layoutReglages1->addWidget(ui->labelAmplitudeMax,4,0);
+    layoutReglages1->addWidget(ui->labelNombreImpulsion,0,0);    
+    layoutReglages1->addWidget(ui->labelAmplitudeMax,1,0);
 
     layoutReglages1->addWidget(ui->nombreImpulsions,0,1);
-    layoutReglages1->addWidget(ui->largeurImpulsion,1,1);
-    layoutReglages1->addWidget(ui->largeurFenetre,2,1);
-    layoutReglages1->addWidget(ui->periodicite,3,1);
-    layoutReglages1->addWidget(ui->amplitudeMax,4,1);
+    layoutReglages1->addWidget(ui->amplitudeMax,1,1);
 
-    layoutReglages1->addWidget(ui->valeurLargeurImpulsion,1,2);
-    layoutReglages1->addWidget(ui->valeurLargeurFenetre,2,2);
-    layoutReglages1->addWidget(ui->valeurPeriode,3,2);
-    layoutReglages1->addWidget(ui->valeurAmplitude,4,2);
+    layoutReglages1->addWidget(ui->valeurAmplitude,1,2);
 
     layoutReglages1->addWidget(ui->precedentReglages1,6,3);
     layoutReglages1->addWidget(ui->suivantReglages1,6,4);
@@ -289,8 +280,20 @@ void IHMdeportee::layout()
     //Layout GroupBox Reglages2
 
     QGridLayout *layoutReglages2 = new QGridLayout;
-    layoutReglages2->addWidget(ui->precedentReglages2,0,0);
-    layoutReglages2->addWidget(ui->suivantReglages2,0,1);
+    layoutReglages2->addWidget(ui->labelLargeurImpulsion,0,0);
+    layoutReglages2->addWidget(ui->labelLargeurFenetre,1,0);
+    layoutReglages2->addWidget(ui->labelPeriode,2,0);
+
+    layoutReglages2->addWidget(ui->largeurImpulsion,0,1);
+    layoutReglages2->addWidget(ui->largeurFenetre,1,1);
+    layoutReglages2->addWidget(ui->periodicite,2,1);
+
+    layoutReglages2->addWidget(ui->valeurLargeurImpulsion,0,2);
+    layoutReglages2->addWidget(ui->valeurLargeurFenetre,1,2);
+    layoutReglages2->addWidget(ui->valeurPeriode,2,2);
+
+    layoutReglages2->addWidget(ui->precedentReglages2,3,3);
+    layoutReglages2->addWidget(ui->suivantReglages2,3,4);
 
     ui->groupBoxReglages2->setLayout(layoutReglages2);
 
@@ -328,11 +331,17 @@ void IHMdeportee::layout()
     layoutLabels->addWidget(ui->resumePeriode,3,0);
     layoutLabels->addWidget(ui->resumeAmplitude,4,0);
 
-    layoutLabels->addWidget(ui->resumeValeurNombreImpulsion,0,1);
-    layoutLabels->addWidget(ui->resumeValeurLargeurImpulsion,1,1);
-    layoutLabels->addWidget(ui->resumeValeurLargeurFenetre,2,1);
-    layoutLabels->addWidget(ui->resumeValeurPeriode,3,1);
-    layoutLabels->addWidget(ui->resumeValeurAmplitude,4,1);
+    layoutLabels->addWidget(ui->deuxPoints1,0,1);
+    layoutLabels->addWidget(ui->deuxPoints2,1,1);
+    layoutLabels->addWidget(ui->deuxPoints3,2,1);
+    layoutLabels->addWidget(ui->deuxPoints4,3,1);
+    layoutLabels->addWidget(ui->deuxPoints5,4,1);
+
+    layoutLabels->addWidget(ui->resumeValeurNombreImpulsion,0,2);
+    layoutLabels->addWidget(ui->resumeValeurLargeurImpulsion,1,2);
+    layoutLabels->addWidget(ui->resumeValeurLargeurFenetre,2,2);
+    layoutLabels->addWidget(ui->resumeValeurPeriode,3,2);
+    layoutLabels->addWidget(ui->resumeValeurAmplitude,4,2);
 
     QGridLayout *layoutResume = new QGridLayout;
     layoutResume->addLayout(layoutLabels,0,0);
@@ -391,36 +400,36 @@ void IHMdeportee::sizeWidget()
     ui->dateManip->setFixedSize(700,100);
     ui->numManip->setFixedSize(700,80);
 
-    ui->suivantPatient->setFixedSize(300,110);
+    ui->suivantPatient->setFixedSize(250,130);
 
 
     //Onglet reglages 1
 
-    ui->labelNombreImpulsion->setFixedSize(600,40);
-    ui->labelLargeurImpulsion->setFixedSize(600,40);
-    ui->labelLargeurFenetre->setFixedSize(600,40);
-    ui->labelPeriode->setFixedSize(600,40);
-    ui->labelAmplitudeMax->setFixedSize(600,40);
+    ui->labelNombreImpulsion->setFixedSize(600,100);
+    ui->labelLargeurImpulsion->setFixedSize(600,50);
+    ui->labelLargeurFenetre->setFixedSize(600,50);
+    ui->labelPeriode->setFixedSize(600,50);
+    ui->labelAmplitudeMax->setFixedSize(600,50);
 
-    ui->nombreImpulsions->setFixedSize(750,100);
-    ui->largeurImpulsion->setFixedSize(750,80);
-    ui->largeurFenetre->setFixedSize(750,80);
-    ui->periodicite->setFixedSize(750,80);
-    ui->amplitudeMax->setFixedSize(750,80);
+    ui->nombreImpulsions->setFixedSize(700,100);
+    ui->largeurImpulsion->setFixedSize(700,80);
+    ui->largeurFenetre->setFixedSize(700,80);
+    ui->periodicite->setFixedSize(700,80);
+    ui->amplitudeMax->setFixedSize(700,80);
 
-    ui->suivantReglages1->setFixedSize(250,110);
-    ui->precedentReglages1->setFixedSize(250,110);
+    ui->suivantReglages1->setFixedSize(250,130);
+    ui->precedentReglages1->setFixedSize(250,130);
 
 
    //Onglet reglages 2
 
-    ui->suivantReglages2->setFixedSize(300,110);
-    ui->precedentReglages2->setFixedSize(300,110);
+    ui->suivantReglages2->setFixedSize(250,130);
+    ui->precedentReglages2->setFixedSize(250,130);
 
     //Onglet resume
 
-    ui->precedentResume->setFixedSize(300,110);
-    ui->start->setFixedSize(300,110);
+    ui->precedentResume->setFixedSize(300,130);
+    ui->start->setFixedSize(350,130);
 
     ui->resumeNombreImpulsion->setFixedSize(600,110);
     ui->resumeLargeurImpulsion->setFixedSize(600,110);
@@ -433,6 +442,12 @@ void IHMdeportee::sizeWidget()
     ui->resumeValeurLargeurFenetre->setFixedSize(300,110);
     ui->resumeValeurPeriode->setFixedSize(300,110);
     ui->resumeValeurAmplitude->setFixedSize(300,110);
+
+    ui->deuxPoints1->setFixedSize(300,110);
+    ui->deuxPoints2->setFixedSize(300,110);
+    ui->deuxPoints3->setFixedSize(300,110);
+    ui->deuxPoints4->setFixedSize(300,110);
+    ui->deuxPoints5->setFixedSize(300,110);
 
     //Fenetre principale
 
@@ -456,15 +471,36 @@ void IHMdeportee::styleWidget()
 {
     ui->tabWidget->setStyleSheet("QTabBar::tab { width: 400 px; }");
 
-    ui->batterie->setStyleSheet("QProgressBar::chunk{background-color : rgb(15,211,15);text-color:white}");
+    int valeurBatterie = ui->batterie->value();
+
+    if (valeurBatterie >= 50)
+    {
+        ui->batterie->setStyleSheet("QProgressBar::chunk{background-color : rgb(15,211,15);}");
+    }
+    else if (valeurBatterie >= 20)
+    {
+        ui->batterie->setStyleSheet("QProgressBar::chunk{background-color : rgb(227,222,20);}");
+    }
+    else if (valeurBatterie >= 10)
+    {
+        ui->batterie->setStyleSheet("QProgressBar::chunk{background-color : rgb(255,102,0);}");
+    }
+    else
+    {
+        ui->batterie->setStyleSheet("QProgressBar::chunk{background-color : rgb(243,35,13);}");
+    }
+
+
 
     ui->stop->setStyleSheet("QPushButton{"
                             "color : rgb(255,255,255);"
                             "background-color : rgb(255,0,0);}");
 
     //ui->labelResume->setStyleSheet("QLabel{background-color : green}");
-
-    //ui->stop->setIcon(QIcon("danger.png"));
+    //ui->stop->setText("");
+    //ui->stop->setIcon(QIcon("dangerj.jpg"));
+    //ui->stop->setIconSize(QSize(20,20));
+    ui->stop->setText("Arrêt \nd'urgence");
 
 
 
@@ -530,11 +566,11 @@ void IHMdeportee::writeResume()
     //QString nom = ui->nom->text();
 
     //ui->labelResume->setText("Nombre d'impulsions : \n\n\nLargeur des impulsions : \n\n\nLargeur de la fenêtre : \n\n\nPériode : \n\n\nAmplitude maximale : ");
-    ui->resumeNombreImpulsion->setText("Nombre d'impulsions : ");
-    ui->resumeLargeurImpulsion->setText("Largeur des impulsions : ");
-    ui->resumeLargeurFenetre->setText("Largeur de la fenêtre : ");
-    ui->resumePeriode->setText("Période : ");
-    ui->resumeAmplitude->setText("Amplitude maximale : ");
+    ui->resumeNombreImpulsion->setText("Nombre d'impulsions  ");
+    ui->resumeLargeurImpulsion->setText("Largeur des impulsions  ");
+    ui->resumeLargeurFenetre->setText("Largeur de la fenêtre  ");
+    ui->resumePeriode->setText("Période  ");
+    ui->resumeAmplitude->setText("Amplitude maximale  ");
 
     int valeurNombreImpulsions = ui->nombreImpulsions->value();
     //QString nombreImpulsions = valeurNombreImpulsions.toString;

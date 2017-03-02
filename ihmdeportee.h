@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QProgressBar>
 #include <QLabel>
+#include <QIcon>
 #include <QDateTimeEdit>
 #include <QGroupBox>
 #include <QSpinBox>
