@@ -15,15 +15,21 @@
 #include <QString>
 #include <QTimer>
 #include <QTime>
-#include<QGridLayout>
-#include<QHBoxLayout>
-#include<QVBoxLayout>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QMainWindow>
+#include <QPixmap>
+#include <QScreen>
+#include <QTextEdit>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 
-#include "D:/Qwt/qwt-6.1.3/qwt-6.1.3/src/qwt_plot.h"
+/*#include "D:/Qwt/qwt-6.1.3/qwt-6.1.3/src/qwt_plot.h"
 #include "D:/Qwt/qwt-6.1.3/qwt-6.1.3/src/qwt_plot_curve.h"
 #include "D:/Qwt/qwt-6.1.3/qwt-6.1.3/src/qwt_series_data.h"
-#include <D:/Qwt/qwt-6.1.3/qwt-6.1.3/src/qwt_plot_grid.h>
+#include <D:/Qwt/qwt-6.1.3/qwt-6.1.3/src/qwt_plot_grid.h>*/
 
 
 namespace Ui {
@@ -43,6 +49,7 @@ public:
     void sizeWidget();
     void styleWidget();
     void updateValeurs();
+    void orientationScreen();
 
     //QwtCourbe(QWidget *parent = 0);
 
@@ -56,6 +63,7 @@ void refreshChronometre();
 void displayChronometre();
 void disabledWidgetsArret();
 void disabledWidgetsCommencer();
+void enablePauseReprendre();
 void updateLabel();
 void suivantFenetrePatient();
 void suivantFenetreReglages1();
@@ -64,6 +72,8 @@ void suivantFenetreReglages2();
 void precedentFenetreReglages2();
 void precedentFenetreResume();
 void writeResume();
+void resetChronometre();
+void sauvegarderValeurs();
 
 //void index();
 

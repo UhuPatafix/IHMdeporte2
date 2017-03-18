@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>pause.ico</file>
+        <file>reprendre.png</file>
+        <file>IHMReglage2.jpg</file>
+        <file>SignauxIHMImp.jpg</file>
+        <file>Colonne-vertébrale.jpg</file>
+    </qresource>
+    <qresource prefix="/icones">
+        <file>danger.png</file>
+    </qresource>
+    <qresource prefix="/fichier">
+        <file>donnees.txt</file>
+    </qresource>
+</RCC>
